@@ -14,7 +14,6 @@ Web cabana has been deprecated in favor of the [new cabana](https://github.com/c
 
 ```bash
 yarn
-yarn run sass
 yarn start
 ```
 

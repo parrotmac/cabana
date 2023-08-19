@@ -66,18 +66,15 @@
     "xtend": "^4.0.1"
   },
   "scripts": {
-    "start": "PORT=3001 env-cmd .env.development craco start",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider PORT=3001 env-cmd .env.development craco start",
     "build": "NODE_OPTIONS=--openssl-legacy-provider env-cmd .env.production craco build",
-    "netlify-sass": "sass src/index.scss > src/index.css",
-    "netlify-build": "NODE_OPTIONS=--openssl-legacy-provider yarn run netlify-sass && yarn run build",
-    "build:staging": "env-cmd .env.staging craco build",
+    "build:staging": "NODE_OPTIONS=--openssl-legacy-provider env-cmd .env.staging craco build",
     "test": "craco test --env=jsdom",
     "test-ci": "CI=true craco test --env=jsdom",
     "test-coverage": "CI=true craco test --env=jsdom --coverage",
     "test-puppeteer": "jest -c ./src/__puppeteer__/jest.config.js",
     "test-all": "yarn run test-ci && yarn run test-puppeteer",
     "test-puppeteer-build": "JEST_PUPPETEER_CONFIG=jest-puppeteer.build.config.js yarn run test-puppeteer",
-    "sass": "sass src/index.scss src/index.css && sass -w src/index.scss src/index.css",
     "deploy": "yarn run test-ci && npm run build && yarn run test-puppeteer-build && gh-pages -d build"
   },
   "lint-staged": {

@@ -9,7 +9,6 @@ RUN yarn install --frozen-lockfile
 
 COPY . /app/
 ARG SENTRY_AUTH_TOKEN
-RUN yarn netlify-sass
 RUN yarn build
 
 
