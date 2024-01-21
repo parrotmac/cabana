@@ -29,7 +29,7 @@ module.exports = function ({ env }) {
             if (plugin.constructor.name !== 'TerserPlugin') {
               return plugin;
             }
-            plugin.options.terserOptions.keep_fnames = true;
+            // plugin.options.terserOptions.keep_fnames = true;
             return plugin;
           }
         );
